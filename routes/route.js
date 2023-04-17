@@ -23,9 +23,7 @@ let ar = [{id:1,mess:"mess"},{id:2,mess:"mess"}]
 let result = ar.map((data,i)=>{
     
 })
-// console.log(result)
-// let res = ar.filter((e,I)=>e===6)
-// console.log(res)
+
 router.get('/products/:id',(req,res)=>{
     let id = req.params.id
     let resdata = arr.find((e)=>e.id==id)
@@ -59,15 +57,12 @@ router.put('/products/:id',(req,res)=>{
         }
     })
     if(!temp){
-        res.json({
+        res.status(404).json({
         status:"id not found"
     })
     }
 })
 
-let amrArr = [1,2,3,4,5,6,7,8];
-amrArr.splice(2,1)
-console.log(amrArr)
 
 router.delete('/products/:id',(req,res)=>{
     // let temp = false;
@@ -81,7 +76,7 @@ router.delete('/products/:id',(req,res)=>{
         }
     })
     if(ind === null){
-        res.status(500).json({
+        res.status(404).json({
             status:'id not founded'
         })
     }else{
